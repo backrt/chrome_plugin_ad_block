@@ -1,7 +1,7 @@
 {
-  "extName": { "message": "Backrt 廣告攔截" },
+  "extName": { "message": "AI廣告攔截" },
   "extDescription": { "message": "基於 Manifest V3 的廣告攔截器：EasyList 靜態攔截，並支援辨識本頁廣告後由使用者加入動態規則。" },
-  "popupTitle": { "message": "Backrt 廣告攔截" },
+  "popupTitle": { "message": "AI廣告攔截" },
   "readingPage": { "message": "正在讀取目前頁面…" },
   "settings": { "message": "設定" },
   "blockedOnPage": { "message": "本頁已攔截" },
@@ -30,7 +30,7 @@
   "addRulesFailed": { "message": "新增動態規則失敗" },
   "toggleFailed": { "message": "切換失敗" },
   "removeFailed": { "message": "刪除失敗" },
-  "optionsTitle": { "message": "Backrt 廣告攔截設定" },
+  "optionsTitle": { "message": "AI廣告攔截設定" },
   "optionsLead": { "message": "靜態規則攔截廣告請求；元素隱藏移除殘留廣告版位；動態規則來自彈出視窗勾選與清單增量更新。" },
   "staticRulesets": { "message": "靜態規則集" },
   "staticRulesHint": { "message": "關閉後需重新整理已開啟的頁面才會完全生效。" },

@@ -9,7 +9,7 @@ const execFileAsync = promisify(execFile);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const STAGE = path.join(DIST, 'extension');
-const ZIP = path.join(DIST, 'backrt-ad-block.zip');
+const ZIP = path.join(DIST, 'ai-ad-block.zip');
 
 async function copyDir(from, to, filter) {
   await mkdir(to, { recursive: true });

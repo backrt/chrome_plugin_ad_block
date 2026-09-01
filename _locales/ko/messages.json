@@ -1,7 +1,7 @@
 {
-  "extName": { "message": "Backrt 광고 차단" },
+  "extName": { "message": "AI 광고 차단" },
   "extDescription": { "message": "Manifest V3 광고 차단기입니다. EasyList 정적 규칙으로 차단하고, 페이지의 광고를 동적 규칙으로 추가할 수 있습니다." },
-  "popupTitle": { "message": "Backrt 광고 차단" },
+  "popupTitle": { "message": "AI 광고 차단" },
   "readingPage": { "message": "현재 페이지를 읽는 중…" },
   "settings": { "message": "설정" },
   "blockedOnPage": { "message": "이 페이지에서 차단됨" },
@@ -30,7 +30,7 @@
   "addRulesFailed": { "message": "동적 규칙을 추가하지 못했습니다" },
   "toggleFailed": { "message": "전환하지 못했습니다" },
   "removeFailed": { "message": "삭제하지 못했습니다" },
-  "optionsTitle": { "message": "Backrt 광고 차단 설정" },
+  "optionsTitle": { "message": "AI 광고 차단 설정" },
   "optionsLead": { "message": "정적 규칙은 광고 요청을 차단하고, 요소 숨기기는 남은 광고 자리를 제거하며, 동적 규칙은 팝업 선택과 목록 증분 업데이트에서 옵니다." },
   "staticRulesets": { "message": "정적 규칙 세트" },
   "staticRulesHint": { "message": "끈 뒤에는 열린 페이지를 새로고침해야 완전히 적용됩니다." },

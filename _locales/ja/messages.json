@@ -1,7 +1,7 @@
 {
-  "extName": { "message": "Backrt 広告ブロック" },
+  "extName": { "message": "AI広告ブロック" },
   "extDescription": { "message": "Manifest V3 の広告ブロッカー。EasyList の静的ルールで遮断し、ページ上の広告を動的ルールに追加できます。" },
-  "popupTitle": { "message": "Backrt 広告ブロック" },
+  "popupTitle": { "message": "AI広告ブロック" },
   "readingPage": { "message": "現在のページを読み込んでいます…" },
   "settings": { "message": "設定" },
   "blockedOnPage": { "message": "このページでブロック済み" },
@@ -30,7 +30,7 @@
   "addRulesFailed": { "message": "動的ルールの追加に失敗しました" },
   "toggleFailed": { "message": "切り替えに失敗しました" },
   "removeFailed": { "message": "削除に失敗しました" },
-  "optionsTitle": { "message": "Backrt 広告ブロックの設定" },
+  "optionsTitle": { "message": "AI広告ブロックの設定" },
   "optionsLead": { "message": "静的ルールで広告リクエストを遮断し、要素非表示で残り枠を消し、動的ルールはポップアップの選択とリスト更新から追加されます。" },
   "staticRulesets": { "message": "静的ルールセット" },
   "staticRulesHint": { "message": "オフにした後は、開いているページを再読み込みすると完全に反映されます。" },

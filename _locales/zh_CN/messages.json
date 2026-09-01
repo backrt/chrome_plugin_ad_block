@@ -1,7 +1,7 @@
 {
-  "extName": { "message": "Backrt 广告拦截" },
+  "extName": { "message": "AI广告拦截" },
   "extDescription": { "message": "基于 Manifest V3 的广告拦截器：EasyList 静态拦截，并支持识别本页广告后由用户加入动态规则。" },
-  "popupTitle": { "message": "Backrt 广告拦截" },
+  "popupTitle": { "message": "AI广告拦截" },
   "readingPage": { "message": "正在读取当前页面…" },
   "settings": { "message": "设置" },
   "blockedOnPage": { "message": "本页已拦截" },
@@ -30,7 +30,7 @@
   "addRulesFailed": { "message": "添加动态规则失败" },
   "toggleFailed": { "message": "切换失败" },
   "removeFailed": { "message": "删除失败" },
-  "optionsTitle": { "message": "Backrt 广告拦截设置" },
+  "optionsTitle": { "message": "AI广告拦截设置" },
   "optionsLead": { "message": "静态规则拦截广告请求；元素隐藏去掉残留广告位；动态规则来自弹窗勾选与列表增量更新。" },
   "staticRulesets": { "message": "静态规则集" },
   "staticRulesHint": { "message": "关闭后需刷新已打开的页面才会完全生效。" },

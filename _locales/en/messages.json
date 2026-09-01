@@ -1,7 +1,7 @@
 {
-  "extName": { "message": "Backrt Ad Block" },
+  "extName": { "message": "AI Ad Blocker" },
   "extDescription": { "message": "A Manifest V3 ad blocker that uses EasyList static rules and lets you add per-page dynamic rules." },
-  "popupTitle": { "message": "Backrt Ad Block" },
+  "popupTitle": { "message": "AI Ad Blocker" },
   "readingPage": { "message": "Reading the current page…" },
   "settings": { "message": "Settings" },
   "blockedOnPage": { "message": "Blocked on this page" },
@@ -30,7 +30,7 @@
   "addRulesFailed": { "message": "Failed to add dynamic rules" },
   "toggleFailed": { "message": "Failed to toggle" },
   "removeFailed": { "message": "Failed to delete" },
-  "optionsTitle": { "message": "Backrt Ad Block settings" },
+  "optionsTitle": { "message": "AI Ad Blocker settings" },
   "optionsLead": { "message": "Static rules block ad requests. Element hiding removes leftover ad slots. Dynamic rules come from the popup and list updates." },
   "staticRulesets": { "message": "Static rule sets" },
   "staticRulesHint": { "message": "Refresh open pages after turning a set off for it to fully apply." },

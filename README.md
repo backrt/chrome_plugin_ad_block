@@ -1,4 +1,4 @@
-# Backrt 广告拦截（Chrome Manifest V3）
+# AI广告拦截（Chrome Manifest V3）
 
 基于 Declarative Net Request 的 Chrome 广告拦截扩展：
 
@@ -62,7 +62,7 @@ npm run build:icons
 npm run pack
 ```
 
-会生成 `dist/backrt-ad-block.zip`（不含 `node_modules`、`.git`、源图标和 `updates/`）。
+会生成 `dist/ai-ad-block.zip`（不含 `node_modules`、`.git`、源图标和 `updates/`）。
 
 商店资料：
 
