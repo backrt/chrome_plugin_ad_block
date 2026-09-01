@@ -1,0 +1,94 @@
+{
+  "manifest_version": 3,
+  "name": "广告拦截",
+  "description": "基于 Manifest V3 的广告拦截器：EasyList 静态拦截，并支持识别本页广告后由用户加入动态规则。",
+  "version": "1.0.0",
+  "minimum_chrome_version": "121",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "广告拦截",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "activeTab",
+    "webRequest",
+    "scripting",
+    "alarms",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content/cosmetic.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/lib/classifier.js",
+        "src/content/detector.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "easylist_1",
+        "enabled": true,
+        "path": "rules/easylist_1.json"
+      },
+      {
+        "id": "easylist_2",
+        "enabled": true,
+        "path": "rules/easylist_2.json"
+      },
+      {
+        "id": "easylist_3",
+        "enabled": true,
+        "path": "rules/easylist_3.json"
+      },
+      {
+        "id": "easylist_4",
+        "enabled": true,
+        "path": "rules/easylist_4.json"
+      },
+      {
+        "id": "easylist_china",
+        "enabled": true,
+        "path": "rules/easylist_china.json"
+      }
+    ]
+  }
+}

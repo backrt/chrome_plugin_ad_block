@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>广告拦截设置</title>
+    <link rel="stylesheet" href="../ui/theme.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1>广告拦截设置</h1>
+        <p class="muted">静态规则拦截广告请求；元素隐藏去掉残留广告位；动态规则来自弹窗勾选与列表增量更新。</p>
+      </header>
+
+      <div id="status" hidden></div>
+
+      <section class="card">
+        <h2>静态规则集</h2>
+        <p class="hint">关闭后需刷新已打开的页面才会完全生效。</p>
+        <label class="switch-row">
+          <input type="checkbox" id="groupEasylist" />
+          <div>
+            <strong>EasyList</strong>
+            <div class="muted">通用广告网络与常见广告请求</div>
+          </div>
+        </label>
+        <label class="switch-row">
+          <input type="checkbox" id="groupChina" />
+          <div>
+            <strong>EasyList China</strong>
+            <div class="muted">针对中文站点的补充规则</div>
+          </div>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>元素隐藏</h2>
+        <p class="hint">用 CSS 隐藏页面上的广告容器。关闭后刷新页面生效。</p>
+        <label class="switch-row">
+          <input type="checkbox" id="cosmeticEnabled" />
+          <div>
+            <strong>隐藏广告元素</strong>
+            <div class="muted">按 EasyList 化妆规则注入 display:none</div>
+          </div>
+        </label>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>过滤列表更新</h2>
+          <button class="btn ghost" id="refreshLists" type="button">立即更新</button>
+        </div>
+        <p class="hint">每日拉取公开列表的增量网络规则，并全量刷新元素隐藏表。</p>
+        <p class="muted" id="updateMeta">尚未更新</p>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>动态规则</h2>
+          <span class="count" id="dynamicCount">0 / 30000</span>
+        </div>
+        <ul class="list" id="ruleList"></ul>
+      </section>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

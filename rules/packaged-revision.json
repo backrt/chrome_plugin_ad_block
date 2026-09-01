@@ -1,0 +1,40 @@
+{
+  "extensionVersion": "1.0.0",
+  "generatedAt": "2026-09-01T03:35:03.505Z",
+  "sources": [
+    {
+      "group": "easylist",
+      "url": "https://easylist.to/easylist/easylist.txt",
+      "fingerprint": "1185a3c3f5ad9dd1",
+      "networkRules": 51917,
+      "cosmetics": {
+        "generic": 13632,
+        "specificDomains": 7746,
+        "specificSelectors": 16682,
+        "exceptionGeneric": 0,
+        "exceptionDomains": 517
+      }
+    },
+    {
+      "group": "easylist_china",
+      "url": "https://easylist-downloads.adblockplus.org/easylistchina.txt",
+      "fingerprint": "6e9809220fc954be",
+      "networkRules": 12059,
+      "cosmetics": {
+        "generic": 1043,
+        "specificDomains": 2374,
+        "specificSelectors": 7354,
+        "exceptionGeneric": 1,
+        "exceptionDomains": 232
+      }
+    }
+  ],
+  "networkRuleCount": 63976,
+  "cosmetics": {
+    "generic": 14675,
+    "specificDomains": 10105,
+    "specificSelectors": 24036,
+    "exceptionGeneric": 1,
+    "exceptionDomains": 749
+  }
+}

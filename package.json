@@ -1,0 +1,15 @@
+{
+  "name": "chrome-plugin-ad-block",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Manifest V3 ad blocker for Chrome",
+  "scripts": {
+    "build:rules": "node scripts/build-rulesets.mjs",
+    "build:updates": "node scripts/build-updates.mjs",
+    "build:icons": "node scripts/generate-icons.mjs"
+  },
+  "devDependencies": {
+    "@eyeo/abp2dnr": "^1.0.7"
+  }
+}

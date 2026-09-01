@@ -1,0 +1,36 @@
+name: Update filter lists
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/chrome
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Build incremental updates
+        run: npm run build:updates
+      - name: Commit updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add updates/dnr-extra.json updates/cosmetics.json
+          if git diff --staged --quiet; then
+            echo "No filter list content changes"
+          else
+            git add updates/meta.json
+            git commit -m "chore: refresh EasyList incremental updates"
+            git push
+          fi

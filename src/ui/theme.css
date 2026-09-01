@@ -1,0 +1,172 @@
+:root {
+  color-scheme: dark;
+  --bg: #10151c;
+  --bg-elevated: #18212c;
+  --bg-hover: #223042;
+  --line: #2b3a4d;
+  --text: #e8eef6;
+  --muted: #8ea0b5;
+  --accent: #4c9dff;
+  --accent-strong: #2f7eeb;
+  --danger: #ef6b5c;
+  --ok: #3dd68c;
+  --warn: #f5c15d;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  --radius: 12px;
+  font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 10px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.row:hover {
+  background: var(--bg-hover);
+}
+
+.row-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.domain {
+  font-size: 13px;
+  font-weight: 650;
+  word-break: break-all;
+}
+
+.path {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  word-break: break-all;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10px;
+  background: rgba(76, 157, 255, 0.12);
+  color: #b9d7ff;
+}
+
+.pill.warn {
+  background: rgba(245, 193, 93, 0.14);
+  color: #f5c15d;
+}
+
+.pill.ok {
+  background: rgba(61, 214, 140, 0.12);
+  color: #3dd68c;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 10px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.btn:hover {
+  background: var(--accent-strong);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.btn.danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(239, 107, 92, 0.4);
+}
+
+.banner {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(239, 107, 92, 0.12);
+  color: #ffb4ab;
+  font-size: 12px;
+}
+
+.banner.ok {
+  background: rgba(61, 214, 140, 0.12);
+  color: #8cf0bc;
+}

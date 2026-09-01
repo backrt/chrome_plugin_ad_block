@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-09-01T03:35:16.741Z",
+  "baselineVersion": "1.0.0",
+  "extraRuleCount": 0,
+  "extraRuleTotal": 0,
+  "truncated": false,
+  "sources": [
+    {
+      "group": "easylist",
+      "fingerprint": "1185a3c3f5ad9dd1",
+      "networkRules": 51917
+    },
+    {
+      "group": "easylist_china",
+      "fingerprint": "6e9809220fc954be",
+      "networkRules": 12059
+    }
+  ],
+  "cosmetics": {
+    "generic": 14675,
+    "specificDomains": 10105,
+    "specificSelectors": 24036,
+    "exceptionGeneric": 1,
+    "exceptionDomains": 749
+  }
+}
