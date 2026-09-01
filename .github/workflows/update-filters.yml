@@ -1,4 +1,5 @@
-# enable workflow
+# 全浏览器共用的 EasyList 增量构建。始终写入 feature/chrome 的 updates/。
+# 使用 GitHub 托管的 ubuntu-latest，不要自建 runner，也不要在 Edge/Firefox 分支再复制一份。
 name: Update filter lists
 
 on:

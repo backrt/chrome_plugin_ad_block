@@ -50,4 +50,8 @@ npm run build:icons
 
 ## 开发分支
 
-当前实现位于 `feature/chrome`。Edge / Firefox 适配在对应分支后续进行。
+- `feature/chrome`：Chrome 实现。GitHub Action「Update filter lists」每天把 EasyList 增量写到本分支的 `updates/`（GitHub 托管 `ubuntu-latest`，不自建 runner）。
+- `feature/edge_store`：Edge 适配。扩展代码可以不同，过滤列表仍拉取 `feature/chrome` 的 `updates/`，不要再加一套 Action。
+- `feature/firefox`：后续。
+
+仓库默认分支保持 `feature/chrome`，否则定时任务不会跑。

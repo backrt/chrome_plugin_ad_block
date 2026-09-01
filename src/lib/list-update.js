@@ -1,4 +1,5 @@
 const AdBlockListUpdate = (() => {
+  // Chrome / Edge / Firefox 都拉这一份；列表由 feature/chrome 上的 Action 生成。
   const UPDATE_BASE = 'https://raw.githubusercontent.com/backrt/chrome_plugin_ad_block/feature/chrome/updates';
   const ALARM_NAME = 'filter-list-update';
   const PERIOD_MINUTES = 24 * 60;
