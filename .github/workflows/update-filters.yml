@@ -1,3 +1,4 @@
+# enable workflow
 name: Update filter lists
 
 on:
