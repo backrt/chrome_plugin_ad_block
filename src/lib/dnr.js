@@ -53,7 +53,7 @@ const AdBlockDnr = (() => {
     const usableStored = stored >= USER_RULE_ID_MIN && stored <= USER_RULE_ID_MAX ? stored : USER_RULE_ID_MIN;
     const id = Math.max(usableStored, maxExisting + 1, USER_RULE_ID_MIN);
     if (id > USER_RULE_ID_MAX) {
-      throw new Error(`用户动态规则已达上限（${USER_RULE_ID_MAX}）`);
+      throw new Error(AdBlockI18n.t('errUserRuleLimit', [String(USER_RULE_ID_MAX)]));
     }
     await AdBlockStorage.setNextRuleId(id + 1);
     return id;
@@ -122,24 +122,24 @@ const AdBlockDnr = (() => {
 
   async function addFromCandidate(candidate, pageUrl) {
     if (!candidate?.domain) {
-      throw new Error('无效的广告候选项');
+      throw new Error(AdBlockI18n.t('errInvalidCandidate'));
     }
     if (candidate.resourceType === 'main_frame') {
-      throw new Error('不能拦截主文档请求');
+      throw new Error(AdBlockI18n.t('errNoMainFrame'));
     }
     const hostWide = shouldUseHostRule(candidate, pageUrl);
     const path = AdBlockClassifier.pathnameOf(candidate.url) || '/';
     if (!hostWide && (!path || path === '/')) {
-      throw new Error('路径过宽，无法添加为动态规则');
+      throw new Error(AdBlockI18n.t('errPathTooWide'));
     }
 
     const existing = await chrome.declarativeNetRequest.getDynamicRules();
     const userCount = existing.filter((rule) => rule.id <= USER_RULE_ID_MAX).length;
     if (userCount >= USER_RULE_ID_MAX) {
-      throw new Error(`用户动态规则已达上限（${USER_RULE_ID_MAX}）`);
+      throw new Error(AdBlockI18n.t('errUserRuleLimit', [String(USER_RULE_ID_MAX)]));
     }
     if (existing.some((rule) => sameTarget(rule, candidate, pageUrl))) {
-      const error = new Error('该规则已存在');
+      const error = new Error(AdBlockI18n.t('errAlreadyExists'));
       error.code = 'ALREADY_EXISTS';
       throw error;
     }
@@ -175,7 +175,7 @@ const AdBlockDnr = (() => {
 
   async function removeRule(ruleId) {
     if (ruleId >= LIST_RULE_ID_MIN) {
-      throw new Error('不能删除列表增量规则');
+      throw new Error(AdBlockI18n.t('errCannotDeleteList'));
     }
     await chrome.declarativeNetRequest.updateDynamicRules({
       removeRuleIds: [ruleId]
@@ -188,7 +188,7 @@ const AdBlockDnr = (() => {
     const userRules = await AdBlockStorage.getUserRules();
     const record = userRules.find((item) => item.ruleId === ruleId);
     if (!record) {
-      throw new Error('未找到该动态规则');
+      throw new Error(AdBlockI18n.t('errRuleNotFound'));
     }
 
     if (enabled) {

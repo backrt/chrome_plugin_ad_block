@@ -1,0 +1,113 @@
+{
+  "extName": { "message": "AI Ad Blocker" },
+  "extDescription": { "message": "A Manifest V3 ad blocker that uses EasyList static rules and lets you add per-page dynamic rules." },
+  "popupTitle": { "message": "AI Ad Blocker" },
+  "readingPage": { "message": "Reading the current page…" },
+  "settings": { "message": "Settings" },
+  "blockedOnPage": { "message": "Blocked on this page" },
+  "suspectOnPage": { "message": "Suspected ads" },
+  "addSelected": { "message": "Add selected to dynamic rules" },
+  "myDynamicRules": { "message": "My dynamic rules" },
+  "emptyBlocked": { "message": "Nothing blocked on this page yet" },
+  "blocked": { "message": "Blocked" },
+  "emptyCandidates": { "message": "No addable ad candidates found" },
+  "sourceDom": { "message": "Page detection" },
+  "sourceNetwork": { "message": "Request detection" },
+  "emptyRulesPopup": { "message": "No custom dynamic rules yet" },
+  "blockByAdDomain": { "message": "Block subresources by ad domain" },
+  "statusEnabled": { "message": "Enabled" },
+  "statusDisabled": { "message": "Disabled" },
+  "actionEnable": { "message": "Enable" },
+  "actionDisable": { "message": "Disable" },
+  "actionDelete": { "message": "Delete" },
+  "cannotReadTab": { "message": "Cannot read the current tab" },
+  "loadPageFailed": { "message": "Failed to load page data" },
+  "addedRules": {
+    "message": "Added $COUNT$ dynamic rule(s). Refresh the page to apply.",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "alreadyInRules": { "message": "The selected domains are already in dynamic rules." },
+  "addRulesFailed": { "message": "Failed to add dynamic rules" },
+  "toggleFailed": { "message": "Failed to toggle" },
+  "removeFailed": { "message": "Failed to delete" },
+  "optionsTitle": { "message": "AI Ad Blocker settings" },
+  "optionsLead": { "message": "Static rules block ad requests. Element hiding removes leftover ad slots. Dynamic rules come from the popup and list updates." },
+  "staticRulesets": { "message": "Static rule sets" },
+  "staticRulesHint": { "message": "Refresh open pages after turning a set off for it to fully apply." },
+  "easylistDesc": { "message": "Common ad networks and ad requests" },
+  "easylistChinaDesc": { "message": "Extra rules for Chinese sites" },
+  "cosmeticSection": { "message": "Element hiding" },
+  "cosmeticHint": { "message": "Hide ad containers with CSS. Refresh the page after turning this off." },
+  "hideAdElements": { "message": "Hide ad elements" },
+  "hideAdElementsDesc": { "message": "Inject display:none from EasyList cosmetic rules" },
+  "filterListUpdates": { "message": "Filter list updates" },
+  "refreshNow": { "message": "Update now" },
+  "filterListHint": { "message": "Fetch incremental network rules daily and refresh the full cosmetic list." },
+  "notUpdatedYet": { "message": "Not updated yet" },
+  "dynamicRules": { "message": "Dynamic rules" },
+  "emptyRulesOptions": { "message": "No custom dynamic rules yet. Open a page and check suspected ads in the popup to add them." },
+  "updateLastSuccess": {
+    "message": "Last success: $TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateListGenerated": {
+    "message": "List generated: $TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateExtraRules": {
+    "message": "Extra network rules: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "updateTruncated": { "message": "Extra rules were truncated at the quota" },
+  "updateBaselineCleared": { "message": "Extension version changed; extra network rules were cleared" },
+  "updateErrorPrefix": {
+    "message": "Error: $ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+  "loadSettingsFailed": { "message": "Failed to load settings" },
+  "dynamicCountText": {
+    "message": "$USED$ / $MAX$ (user $USERUSED$ / $USERMAX$, extra $EXTRA$)",
+    "placeholders": {
+      "used": { "content": "$1" },
+      "max": { "content": "$2" },
+      "userused": { "content": "$3" },
+      "usermax": { "content": "$4" },
+      "extra": { "content": "$5" }
+    }
+  },
+  "staticRulesUpdated": { "message": "Static rule sets updated. Refresh open pages." },
+  "updateRulesetsFailed": { "message": "Failed to update rule sets" },
+  "cosmeticUpdated": { "message": "Element hiding updated. Refresh open pages." },
+  "updateCosmeticFailed": { "message": "Failed to update element hiding" },
+  "updatingLists": { "message": "Updating filter lists…" },
+  "listsUpdated": { "message": "Filter lists updated." },
+  "updateFailed": { "message": "Update failed" },
+  "errUserRuleLimit": {
+    "message": "User dynamic rules reached the limit ($MAX$)",
+    "placeholders": { "max": { "content": "$1" } }
+  },
+  "errInvalidCandidate": { "message": "Invalid ad candidate" },
+  "errNoMainFrame": { "message": "Cannot block the main document request" },
+  "errPathTooWide": { "message": "Path is too broad to add as a dynamic rule" },
+  "errAlreadyExists": { "message": "This rule already exists" },
+  "errCannotDeleteList": { "message": "Cannot delete list extra rules" },
+  "errRuleNotFound": { "message": "Dynamic rule not found" },
+  "errUnknownMessage": {
+    "message": "Unknown message type: $TYPE$",
+    "placeholders": { "type": { "content": "$1" } }
+  },
+  "errNetwork": { "message": "Network error" },
+  "errUpdateFetch": {
+    "message": "Could not fetch updates ($STATUS$). GitHub raw may be cached or blocked; a CDN fallback was tried. Reload the extension and tap Update now.",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateMeta": {
+    "message": "Failed to fetch meta.json ($STATUS$)",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateExtra": {
+    "message": "Failed to fetch dnr-extra.json ($STATUS$)",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "techSupport": { "message": "Support" }
+}

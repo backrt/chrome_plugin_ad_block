@@ -7,7 +7,8 @@
   "scripts": {
     "build:rules": "node scripts/build-rulesets.mjs",
     "build:updates": "node scripts/build-updates.mjs",
-    "build:icons": "node scripts/generate-icons.mjs"
+    "build:icons": "node scripts/generate-icons.mjs",
+    "pack": "node scripts/pack-extension.mjs"
   },
   "devDependencies": {
     "@eyeo/abp2dnr": "^1.0.7"

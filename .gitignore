@@ -5,3 +5,4 @@ node_modules/
 tmp/
 rules/packaged-keys.json
 _metadata/
+dist/

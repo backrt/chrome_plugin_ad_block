@@ -10,16 +10,21 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-filters-chrome
+  cancel-in-progress: false
+
 jobs:
   build-updates:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: feature/chrome
-      - uses: actions/setup-node@v4
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '22'
       - name: Install dependencies
         run: npm install
       - name: Build incremental updates
@@ -31,8 +36,9 @@ jobs:
           git add updates/dnr-extra.json updates/cosmetics.json
           if git diff --staged --quiet; then
             echo "No filter list content changes"
-          else
-            git add updates/meta.json
-            git commit -m "chore: refresh EasyList incremental updates"
-            git push
+            exit 0
           fi
+          git add updates/meta.json
+          git commit -m "chore: refresh EasyList incremental updates"
+          git pull --rebase origin feature/chrome
+          git push origin HEAD:feature/chrome

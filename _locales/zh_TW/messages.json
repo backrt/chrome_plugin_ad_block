@@ -1,0 +1,113 @@
+{
+  "extName": { "message": "AI廣告攔截" },
+  "extDescription": { "message": "基於 Manifest V3 的廣告攔截器：EasyList 靜態攔截，並支援辨識本頁廣告後由使用者加入動態規則。" },
+  "popupTitle": { "message": "AI廣告攔截" },
+  "readingPage": { "message": "正在讀取目前頁面…" },
+  "settings": { "message": "設定" },
+  "blockedOnPage": { "message": "本頁已攔截" },
+  "suspectOnPage": { "message": "本頁疑似廣告" },
+  "addSelected": { "message": "將勾選項目加入動態規則" },
+  "myDynamicRules": { "message": "我的動態規則" },
+  "emptyBlocked": { "message": "目前頁面暫無攔截紀錄" },
+  "blocked": { "message": "已攔截" },
+  "emptyCandidates": { "message": "未辨識到可新增的廣告候選項目" },
+  "sourceDom": { "message": "頁面辨識" },
+  "sourceNetwork": { "message": "請求辨識" },
+  "emptyRulesPopup": { "message": "還沒有自訂動態規則" },
+  "blockByAdDomain": { "message": "依廣告網域攔截子資源" },
+  "statusEnabled": { "message": "已啟用" },
+  "statusDisabled": { "message": "已停用" },
+  "actionEnable": { "message": "啟用" },
+  "actionDisable": { "message": "停用" },
+  "actionDelete": { "message": "刪除" },
+  "cannotReadTab": { "message": "無法讀取目前分頁" },
+  "loadPageFailed": { "message": "讀取頁面資料失敗" },
+  "addedRules": {
+    "message": "已新增 $COUNT$ 條動態規則，重新整理頁面後生效。",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "alreadyInRules": { "message": "所選網域已在動態規則中。" },
+  "addRulesFailed": { "message": "新增動態規則失敗" },
+  "toggleFailed": { "message": "切換失敗" },
+  "removeFailed": { "message": "刪除失敗" },
+  "optionsTitle": { "message": "AI廣告攔截設定" },
+  "optionsLead": { "message": "靜態規則攔截廣告請求；元素隱藏移除殘留廣告版位；動態規則來自彈出視窗勾選與清單增量更新。" },
+  "staticRulesets": { "message": "靜態規則集" },
+  "staticRulesHint": { "message": "關閉後需重新整理已開啟的頁面才會完全生效。" },
+  "easylistDesc": { "message": "通用廣告網路與常見廣告請求" },
+  "easylistChinaDesc": { "message": "針對中文網站的補充規則" },
+  "cosmeticSection": { "message": "元素隱藏" },
+  "cosmeticHint": { "message": "以 CSS 隱藏頁面上的廣告容器。關閉後重新整理頁面生效。" },
+  "hideAdElements": { "message": "隱藏廣告元素" },
+  "hideAdElementsDesc": { "message": "依 EasyList 化妝規則注入 display:none" },
+  "filterListUpdates": { "message": "過濾清單更新" },
+  "refreshNow": { "message": "立即更新" },
+  "filterListHint": { "message": "每日擷取公開清單的增量網路規則，並全量重新整理元素隱藏表。" },
+  "notUpdatedYet": { "message": "尚未更新" },
+  "dynamicRules": { "message": "動態規則" },
+  "emptyRulesOptions": { "message": "還沒有自訂動態規則。開啟任意網頁，在擴充功能彈出視窗中勾選疑似廣告即可新增。" },
+  "updateLastSuccess": {
+    "message": "上次成功：$TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateListGenerated": {
+    "message": "清單產生：$TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateExtraRules": {
+    "message": "增量網路規則：$COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "updateTruncated": { "message": "增量已截斷至額度上限" },
+  "updateBaselineCleared": { "message": "擴充功能版本已更新，增量網路規則已清空" },
+  "updateErrorPrefix": {
+    "message": "錯誤：$ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+  "loadSettingsFailed": { "message": "讀取設定失敗" },
+  "dynamicCountText": {
+    "message": "$USED$ / $MAX$（使用者 $USERUSED$ / $USERMAX$，增量 $EXTRA$）",
+    "placeholders": {
+      "used": { "content": "$1" },
+      "max": { "content": "$2" },
+      "userused": { "content": "$3" },
+      "usermax": { "content": "$4" },
+      "extra": { "content": "$5" }
+    }
+  },
+  "staticRulesUpdated": { "message": "靜態規則集已更新，請重新整理已開啟的網頁。" },
+  "updateRulesetsFailed": { "message": "更新規則集失敗" },
+  "cosmeticUpdated": { "message": "元素隱藏已更新，請重新整理已開啟的網頁。" },
+  "updateCosmeticFailed": { "message": "更新元素隱藏失敗" },
+  "updatingLists": { "message": "正在更新過濾清單…" },
+  "listsUpdated": { "message": "過濾清單已更新。" },
+  "updateFailed": { "message": "更新失敗" },
+  "errUserRuleLimit": {
+    "message": "使用者動態規則已達上限（$MAX$）",
+    "placeholders": { "max": { "content": "$1" } }
+  },
+  "errInvalidCandidate": { "message": "無效的廣告候選項目" },
+  "errNoMainFrame": { "message": "不能攔截主文件請求" },
+  "errPathTooWide": { "message": "路徑過寬，無法新增為動態規則" },
+  "errAlreadyExists": { "message": "該規則已存在" },
+  "errCannotDeleteList": { "message": "不能刪除清單增量規則" },
+  "errRuleNotFound": { "message": "找不到該動態規則" },
+  "errUnknownMessage": {
+    "message": "未知訊息類型: $TYPE$",
+    "placeholders": { "type": { "content": "$1" } }
+  },
+  "errNetwork": { "message": "網路錯誤" },
+  "errUpdateFetch": {
+    "message": "拉不到更新檔（$STATUS$）。GitHub raw 可能被快取或攔截，已嘗試備用 CDN。請在擴充功能管理頁重新載入後再點立即更新。",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateMeta": {
+    "message": "擷取 meta.json 失敗（$STATUS$）",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateExtra": {
+    "message": "擷取 dnr-extra.json 失敗（$STATUS$）",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "techSupport": { "message": "技術支援" }
+}

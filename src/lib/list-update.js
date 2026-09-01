@@ -1,8 +1,13 @@
 const AdBlockListUpdate = (() => {
   // Chrome / Edge / Firefox 都拉这一份；列表由 feature/chrome 上的 Action 生成。
-  const UPDATE_BASE = 'https://raw.githubusercontent.com/backrt/chrome_plugin_ad_block/feature/chrome/updates';
+  const UPDATE_BASES = [
+    'https://raw.githubusercontent.com/backrt/chrome_plugin_ad_block/feature/chrome/updates',
+    'https://cdn.jsdelivr.net/gh/backrt/chrome_plugin_ad_block@feature/chrome/updates'
+  ];
+  const UPDATE_BASE = UPDATE_BASES[0];
   const ALARM_NAME = 'filter-list-update';
   const PERIOD_MINUTES = 24 * 60;
+  let activeBase = UPDATE_BASES[0];
 
   async function getStatus() {
     const { listUpdate } = await chrome.storage.local.get('listUpdate');
@@ -25,24 +30,44 @@ const AdBlockListUpdate = (() => {
     return listUpdate;
   }
 
-  async function fetchJson(fileName, etag) {
-    const headers = { 'User-Agent': 'chrome-plugin-ad-block/1.0' };
+  async function fetchJson(fileName, { etag = '', bust = false } = {}) {
+    const headers = {};
     if (etag) headers['If-None-Match'] = etag;
-    const response = await fetch(`${UPDATE_BASE}/${fileName}`, { headers });
-    return response;
+    const suffix = bust ? `?t=${Date.now()}` : '';
+    const bases = [activeBase, ...UPDATE_BASES.filter((base) => base !== activeBase)];
+    let last = null;
+    for (const base of bases) {
+      try {
+        const response = await fetch(`${base}/${fileName}${suffix}`, {
+          headers,
+          cache: 'no-store'
+        });
+        last = response;
+        if (response.ok || response.status === 304) {
+          activeBase = base;
+          return response;
+        }
+      } catch (error) {
+        last = { ok: false, status: 0, message: error.message || String(error) };
+      }
+    }
+    return last;
   }
 
   async function refresh(force = false) {
     const status = await getStatus();
-    const metaResponse = await fetchJson('meta.json', force ? '' : status.etag);
-    if (metaResponse.status === 404) {
-      throw new Error('尚未发布更新文件，请先运行 npm run build:updates 或等待 CI');
+    const metaResponse = await fetchJson('meta.json', {
+      etag: force ? '' : status.etag,
+      bust: true
+    });
+    if (!metaResponse || metaResponse.status === 404 || metaResponse.status === 0) {
+      throw new Error(AdBlockI18n.t('errUpdateFetch', [String(metaResponse?.status || AdBlockI18n.t('errNetwork'))]));
     }
     if (metaResponse.status === 304) {
       return setStatus({ lastError: null, lastSuccessAt: Date.now() });
     }
     if (!metaResponse.ok) {
-      throw new Error(`拉取 meta.json 失败（${metaResponse.status}）`);
+      throw new Error(AdBlockI18n.t('errUpdateMeta', [String(metaResponse.status)]));
     }
 
     const meta = await metaResponse.json();
@@ -50,8 +75,8 @@ const AdBlockListUpdate = (() => {
     const extensionVersion = chrome.runtime.getManifest().version;
     const baselineMatches = !meta.baselineVersion || meta.baselineVersion === extensionVersion;
 
-    const cosmeticsResponse = await fetchJson('cosmetics.json');
-    if (cosmeticsResponse.ok) {
+    const cosmeticsResponse = await fetchJson('cosmetics.json', { bust: true });
+    if (cosmeticsResponse?.ok) {
       const cosmetics = await cosmeticsResponse.json();
       await AdBlockCosmetics.setCosmetics(cosmetics);
     }
@@ -59,9 +84,9 @@ const AdBlockListUpdate = (() => {
     let extraRuleCount = 0;
     let truncated = Boolean(meta.truncated);
     if (baselineMatches) {
-      const extraResponse = await fetchJson('dnr-extra.json');
-      if (!extraResponse.ok) {
-        throw new Error(`拉取 dnr-extra.json 失败（${extraResponse.status}）`);
+      const extraResponse = await fetchJson('dnr-extra.json', { bust: true });
+      if (!extraResponse?.ok) {
+        throw new Error(AdBlockI18n.t('errUpdateExtra', [String(extraResponse?.status || AdBlockI18n.t('errNetwork'))]));
       }
       const extra = await extraResponse.json();
       const applied = await AdBlockDnr.applyListExtra(Array.isArray(extra) ? extra : []);
@@ -80,7 +105,8 @@ const AdBlockListUpdate = (() => {
       generatedAt: meta.generatedAt || null,
       etag,
       baselineVersion: meta.baselineVersion || null,
-      baselineMatches
+      baselineMatches,
+      updateSource: activeBase
     });
   }
 
@@ -93,6 +119,7 @@ const AdBlockListUpdate = (() => {
 
   return {
     UPDATE_BASE,
+    UPDATE_BASES,
     ALARM_NAME,
     getStatus,
     refresh,

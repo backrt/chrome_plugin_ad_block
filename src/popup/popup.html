@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>广告拦截</title>
+    <title data-i18n="popupTitle">AI广告拦截</title>
     <link rel="stylesheet" href="../ui/theme.css" />
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <header class="top">
       <div>
-        <h1>广告拦截</h1>
-        <p class="page-url" id="pageUrl">正在读取当前页面…</p>
+        <h1 data-i18n="popupTitle">AI广告拦截</h1>
+        <p class="page-url" id="pageUrl" data-i18n="readingPage">正在读取当前页面…</p>
       </div>
-      <a class="settings" href="../options/options.html" target="_blank" rel="noopener">设置</a>
+      <a class="settings" href="../options/options.html" target="_blank" rel="noopener" data-i18n="settings">设置</a>
     </header>
 
     <div id="status" hidden></div>
 
     <section>
       <div class="section-head">
-        <h2>本页已拦截</h2>
+        <h2 data-i18n="blockedOnPage">本页已拦截</h2>
         <span class="count" id="blockedCount">0</span>
       </div>
       <ul class="list" id="blockedList"></ul>
@@ -28,21 +28,27 @@
 
     <section>
       <div class="section-head">
-        <h2>本页疑似广告</h2>
+        <h2 data-i18n="suspectOnPage">本页疑似广告</h2>
         <span class="count" id="candidateCount">0</span>
       </div>
       <ul class="list" id="candidateList"></ul>
-      <button class="btn add-btn" id="addSelected" disabled>将勾选项加入动态规则</button>
+      <button class="btn add-btn" id="addSelected" disabled data-i18n="addSelected">将勾选项加入动态规则</button>
     </section>
 
     <section>
       <div class="section-head">
-        <h2>我的动态规则</h2>
+        <h2 data-i18n="myDynamicRules">我的动态规则</h2>
         <span class="count" id="ruleCount">0</span>
       </div>
       <ul class="list" id="ruleList"></ul>
     </section>
 
+    <footer class="support">
+      <span data-i18n="techSupport">技术支持</span>:
+      <a href="mailto:backrt@gmail.com">backrt@gmail.com</a>
+    </footer>
+
+    <script src="../lib/i18n.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

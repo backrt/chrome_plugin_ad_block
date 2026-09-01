@@ -1,4 +1,4 @@
-# 广告拦截（Microsoft Edge Manifest V3）
+# AI广告拦截（Microsoft Edge Manifest V3）
 
 基于 Declarative Net Request 的 Edge 广告拦截扩展。与 Chrome 共用同一份 EasyList 增量（由 `feature/chrome` 上的 GitHub Action 生成），本分支只放 Edge 适配。
 
@@ -29,13 +29,6 @@ npm run build:icons
 
 过滤列表更新地址固定为 `feature/chrome` 的 `updates/`，不必在本分支再跑「Update filter lists」。
 
-## 在 Chrome 中加载
-
-1. 打开 `chrome://extensions`
-2. 打开右上角「开发者模式」
-3. 点击「加载已解压的扩展程序」
-4. 选择本仓库根目录
-
 ## 使用
 
 - 打开含广告的网页，工具栏图标会显示拦截计数
@@ -55,9 +48,18 @@ npm run build:icons
 - `storage` / `unlimitedStorage`：保存动态规则、化妆表与更新状态
 - `alarms`：每日拉取增量过滤列表
 
-本扩展不声明 `declarativeNetRequestFeedback`，以便符合 Chrome 网上应用店对调试权限的限制。
+本扩展不声明 `declarativeNetRequestFeedback`，以便符合应用商店对调试权限的限制。
 
 ## 开发分支
 
 - 当前分支 `feature/edge_store`：Edge 适配。
 - 过滤列表由默认分支 `feature/chrome` 上的 Action 生成并写入 `updates/`。扩展运行时仍拉取该地址，不在本分支新增 runner 或 workflow。
+- 仓库需为 Public，否则 GitHub raw 无法被扩展访问。
+
+## 打包
+
+```bash
+npm run pack
+```
+
+会生成 `dist/ai-ad-block.zip`。隐私政策见 [docs/privacy.html](docs/privacy.html)。

@@ -7,6 +7,9 @@ const dynamicCount = document.getElementById('dynamicCount');
 const ruleList = document.getElementById('ruleList');
 const statusEl = document.getElementById('status');
 
+const t = AdBlockI18n.t;
+AdBlockI18n.apply();
+
 function escapeHtml(text) {
   return String(text ?? '')
     .replaceAll('&', '&amp;')
@@ -31,7 +34,7 @@ function emptyRow(text) {
 function renderRules(items) {
   ruleList.replaceChildren();
   if (!items.length) {
-    ruleList.append(emptyRow('还没有自定义动态规则。打开任意网页，在扩展弹窗中勾选疑似广告即可添加。'));
+    ruleList.append(emptyRow(t('emptyRulesOptions')));
     return;
   }
   for (const item of items) {
@@ -41,17 +44,17 @@ function renderRules(items) {
     li.innerHTML = `
       <div class="row-body">
         <div class="domain">${escapeHtml(item.domain)}</div>
-        <div class="path">${item.requestDomains?.length ? '按广告域名拦截子资源' : escapeHtml(item.urlFilter || item.url)}</div>
+        <div class="path">${item.requestDomains?.length ? t('blockByAdDomain') : escapeHtml(item.urlFilter || item.url)}</div>
         <div class="meta">
-          <span class="pill ${item.enabled ? 'ok' : 'warn'}">${item.enabled ? '已启用' : '已停用'}</span>
+          <span class="pill ${item.enabled ? 'ok' : 'warn'}">${item.enabled ? t('statusEnabled') : t('statusDisabled')}</span>
           ${created ? `<span class="pill">${created}</span>` : ''}
         </div>
       </div>
       <div class="actions">
         <button class="btn ghost" data-toggle="${item.ruleId}" data-enabled="${item.enabled ? '1' : '0'}">${
-          item.enabled ? '停用' : '启用'
+          item.enabled ? t('actionDisable') : t('actionEnable')
         }</button>
-        <button class="btn danger" data-remove="${item.ruleId}">删除</button>
+        <button class="btn danger" data-remove="${item.ruleId}">${t('actionDelete')}</button>
       </div>
     `;
     ruleList.append(li);
@@ -59,25 +62,25 @@ function renderRules(items) {
 }
 
 function formatUpdate(status) {
-  if (!status) return '尚未更新';
+  if (!status) return t('notUpdatedYet');
   const parts = [];
   if (status.lastSuccessAt) {
-    parts.push(`上次成功：${new Date(status.lastSuccessAt).toLocaleString()}`);
+    parts.push(t('updateLastSuccess', [new Date(status.lastSuccessAt).toLocaleString()]));
   }
   if (status.generatedAt) {
-    parts.push(`列表生成：${new Date(status.generatedAt).toLocaleString()}`);
+    parts.push(t('updateListGenerated', [new Date(status.generatedAt).toLocaleString()]));
   }
-  parts.push(`增量网络规则：${status.extraRuleCount || 0}`);
-  if (status.truncated) parts.push('增量已截断至额度上限');
-  if (status.baselineMatches === false) parts.push('扩展版本已更新，增量网络规则已清空');
-  if (status.lastError) parts.push(`错误：${status.lastError}`);
-  return parts.join(' · ') || '尚未更新';
+  parts.push(t('updateExtraRules', [String(status.extraRuleCount || 0)]));
+  if (status.truncated) parts.push(t('updateTruncated'));
+  if (status.baselineMatches === false) parts.push(t('updateBaselineCleared'));
+  if (status.lastError) parts.push(t('updateErrorPrefix', [status.lastError]));
+  return parts.join(' · ') || t('notUpdatedYet');
 }
 
 async function loadData() {
   const response = await chrome.runtime.sendMessage({ type: 'GET_OPTIONS_DATA' });
   if (!response?.ok) {
-    showStatus(response?.error || '读取设置失败');
+    showStatus(response?.error || t('loadSettingsFailed'));
     return;
   }
   groupEasylist.checked = Boolean(response.rulesetGroups?.easylist);
@@ -85,7 +88,13 @@ async function loadData() {
   cosmeticEnabled.checked = response.cosmeticEnabled !== false;
   updateMeta.textContent = formatUpdate(response.listUpdate);
   const extra = response.extraRuleCount || 0;
-  dynamicCount.textContent = `${response.dynamicRuleCount || 0} / ${response.maxDynamicRules || 30000}（用户 ${response.userRules?.length || 0} / ${response.userRuleLimit || 5000}，增量 ${extra}）`;
+  dynamicCount.textContent = t('dynamicCountText', [
+    String(response.dynamicRuleCount || 0),
+    String(response.maxDynamicRules || 30000),
+    String(response.userRules?.length || 0),
+    String(response.userRuleLimit || 5000),
+    String(extra)
+  ]);
   renderRules(response.userRules || []);
 }
 
@@ -98,9 +107,9 @@ async function saveGroups() {
     }
   });
   if (response?.ok) {
-    showStatus('静态规则集已更新，请刷新已打开的网页。', true);
+    showStatus(t('staticRulesUpdated'), true);
   } else {
-    showStatus(response?.error || '更新规则集失败');
+    showStatus(response?.error || t('updateRulesetsFailed'));
   }
 }
 
@@ -113,21 +122,21 @@ cosmeticEnabled.addEventListener('change', async () => {
     enabled: cosmeticEnabled.checked
   });
   if (response?.ok) {
-    showStatus('元素隐藏已更新，请刷新已打开的网页。', true);
+    showStatus(t('cosmeticUpdated'), true);
   } else {
-    showStatus(response?.error || '更新元素隐藏失败');
+    showStatus(response?.error || t('updateCosmeticFailed'));
   }
 });
 
 refreshLists.addEventListener('click', async () => {
   refreshLists.disabled = true;
-  showStatus('正在更新过滤列表…', true);
+  showStatus(t('updatingLists'), true);
   const response = await chrome.runtime.sendMessage({ type: 'REFRESH_FILTER_LISTS' });
   refreshLists.disabled = false;
   if (response?.ok) {
-    showStatus('过滤列表已更新。', true);
+    showStatus(t('listsUpdated'), true);
   } else {
-    showStatus(response?.error || '更新失败');
+    showStatus(response?.error || t('updateFailed'));
   }
   await loadData();
 });
@@ -141,7 +150,7 @@ ruleList.addEventListener('click', async (event) => {
       ruleId: Number(toggle.dataset.toggle),
       enabled: toggle.dataset.enabled !== '1'
     });
-    if (!response?.ok) showStatus(response?.error || '切换失败');
+    if (!response?.ok) showStatus(response?.error || t('toggleFailed'));
     await loadData();
   }
   if (remove) {
@@ -149,7 +158,7 @@ ruleList.addEventListener('click', async (event) => {
       type: 'REMOVE_DYNAMIC_RULE',
       ruleId: Number(remove.dataset.remove)
     });
-    if (!response?.ok) showStatus(response?.error || '删除失败');
+    if (!response?.ok) showStatus(response?.error || t('removeFailed'));
     await loadData();
   }
 });
