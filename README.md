@@ -1,6 +1,6 @@
-# 广告拦截（Chrome Manifest V3）
+# 广告拦截（Microsoft Edge Manifest V3）
 
-基于 Declarative Net Request 的 Chrome 广告拦截扩展：
+基于 Declarative Net Request 的 Edge 广告拦截扩展。与 Chrome 共用同一份 EasyList 增量（由 `feature/chrome` 上的 GitHub Action 生成），本分支只放 Edge 适配。
 
 - 使用 EasyList / EasyList China 静态规则自动拦截常见广告请求
 - 用 content script 按化妆规则隐藏残留广告元素
@@ -19,6 +19,15 @@ npm run build:icons
 ```
 
 `npm run build:rules` 会下载 EasyList 并转换为 `rules/*.json` 与 `cosmetics/snapshot.json`，同时更新 `manifest.json` 中的 `rule_resources`。`npm run build:updates` 生成 `updates/` 下的增量 DNR 与全量化妆表，供扩展定时拉取。转换依赖本机可编译 `@eyeo/abp2dnr`（需要 Python 与 C++ 工具链）。仓库中已包含生成好的规则文件，日常加载扩展不必重新构建。
+
+## 在 Edge 中加载
+
+1. 打开 `edge://extensions`
+2. 打开左下角「开发人员模式」
+3. 点击「加载解压缩的扩展」
+4. 选择本仓库根目录
+
+过滤列表更新地址固定为 `feature/chrome` 的 `updates/`，不必在本分支再跑「Update filter lists」。
 
 ## 在 Chrome 中加载
 
@@ -50,8 +59,5 @@ npm run build:icons
 
 ## 开发分支
 
-- `feature/chrome`：Chrome 实现。GitHub Action「Update filter lists」每天把 EasyList 增量写到本分支的 `updates/`（GitHub 托管 `ubuntu-latest`，不自建 runner）。
-- `feature/edge_store`：Edge 适配。扩展代码可以不同，过滤列表仍拉取 `feature/chrome` 的 `updates/`，不要再加一套 Action。
-- `feature/firefox`：后续。
-
-仓库默认分支保持 `feature/chrome`，否则定时任务不会跑。
+- 当前分支 `feature/edge_store`：Edge 适配。
+- 过滤列表由默认分支 `feature/chrome` 上的 Action 生成并写入 `updates/`。扩展运行时仍拉取该地址，不在本分支新增 runner 或 workflow。
