@@ -54,4 +54,4 @@ npm run build:icons
 - `feature/edge_store`：Edge 适配。扩展代码可以不同，过滤列表仍拉取 `feature/chrome` 的 `updates/`，不要再加一套 Action。
 - `feature/firefox`：后续。
 
-仓库默认分支保持 `feature/chrome`，否则定时任务不会跑。
+仓库默认分支保持 `feature/chrome`，否则定时任务不会跑。扩展从 GitHub raw 拉列表，**仓库需要是 Public**；Private 时 raw 会返回 404，设置页会提示更新失败。
