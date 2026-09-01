@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdir, rm, cp, readdir } from 'node:fs/promises';
+import { mkdir, rm, cp, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
@@ -9,7 +9,8 @@ const execFileAsync = promisify(execFile);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const STAGE = path.join(DIST, 'extension');
-const ZIP = path.join(DIST, 'ai-ad-block.zip');
+const manifest = JSON.parse(await readFile(path.join(ROOT, 'manifest.json'), 'utf8'));
+const ZIP = path.join(DIST, `ai-ad-block-edge-${manifest.version}.zip`);
 
 async function copyDir(from, to, filter) {
   await mkdir(to, { recursive: true });

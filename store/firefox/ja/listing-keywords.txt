@@ -1,0 +1,9 @@
+# Firefox Add-ons search keywords
+広告ブロック, 広告フィルター, EasyList, 要素非表示, 広告削除, コスメティック
+
+広告ブロック
+広告フィルター
+EasyList
+要素非表示
+広告削除
+コスメティック

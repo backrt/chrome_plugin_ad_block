@@ -59,7 +59,31 @@ npm run build:icons
 ## 打包
 
 ```bash
-npm run pack
+npm run pack:edge
 ```
 
-会生成 `dist/ai-ad-block.zip`。隐私政策见 [docs/privacy.html](docs/privacy.html)。
+会生成 `dist/ai-ad-block-edge-<version>.zip`（不含 `scripts/`、`store/`、`updates/`）。隐私政策见 [PRIVACY.md](PRIVACY.md) 与 [docs/privacy.html](docs/privacy.html)。
+
+## Edge Add-ons / Firefox AMO 素材
+
+目录对齐同级项目 `chrome_plugin_traffic_mirror`：`store/edge/` 与 `store/firefox/`。
+
+生成各语言宣传图、截图与 listing 文案（需 Pillow：`pip3 install pillow`）：
+
+```bash
+npm run store:edge
+npm run store:firefox
+```
+
+各语言目录 `store/<edge|firefox>/<locale>/`：
+
+- `listing-description.txt` — 商店描述
+- `listing-keywords.txt` — 搜索关键词
+- `promo-small-440x280.png` / `promo-large-1400x560.png` — 宣传图
+- `extension-icon-300x300.png` — 商店图标
+- `screenshots/*.png` — 1280×800（弹窗 / 设置 / 列表更新）
+
+Partner Center / AMO 权限与隐私表单粘贴稿：
+
+- `store/edge/partner-center-privacy-zh_CN.md`
+- `store/firefox/partner-center-privacy-zh_CN.md`

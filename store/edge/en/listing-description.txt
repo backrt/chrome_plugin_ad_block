@@ -1,0 +1,23 @@
+AI Ad Blocker is a lightweight Microsoft Edge extension that blocks ad requests and hides leftover ad elements in your browser.
+
+Features:
+• Static blocking: bundled EasyList and EasyList China rules stop common ad-network requests
+• Element hiding: CSS cosmetic rules hide leftover ad containers
+• On-page detection: the popup lists blocked requests and suspected ads on the current tab
+• User dynamic rules: items you check are written locally (IDs 1–5000)
+• List updates: daily public filter-list increments (IDs 5001–30000)
+• Local storage: settings and rules stay on your device—no browsing history uploaded
+• Multilingual UI: Simplified Chinese, Traditional Chinese, English, Japanese, and Korean
+
+How to use:
+1. Browse the web normally after installing the extension
+2. Click the toolbar icon to see blocked requests and suspected ads
+3. Check candidates and add them as dynamic rules, then refresh the page
+4. In Settings, toggle EasyList / EasyList China and element hiding, or update filter lists manually
+
+Notes:
+• The extension downloads public filter-list JSON as data and does not execute remote JavaScript
+• It does not read your accounts or passwords, and does not upload browsing history
+• Dynamic rules apply only on this device
+
+Feedback: backrt@gmail.com
