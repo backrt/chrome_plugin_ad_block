@@ -61,15 +61,13 @@ const AdBlockListUpdate = (() => {
       bust: true
     });
     if (!metaResponse || metaResponse.status === 404 || metaResponse.status === 0) {
-      throw new Error(
-        `拉不到更新文件（${metaResponse?.status || '网络错误'}）。GitHub raw 可能被缓存或拦截，已尝试备用 CDN。请在 chrome://extensions 刷新扩展后再点立即更新。`
-      );
+      throw new Error(AdBlockI18n.t('errUpdateFetch', [String(metaResponse?.status || AdBlockI18n.t('errNetwork'))]));
     }
     if (metaResponse.status === 304) {
       return setStatus({ lastError: null, lastSuccessAt: Date.now() });
     }
     if (!metaResponse.ok) {
-      throw new Error(`拉取 meta.json 失败（${metaResponse.status}）`);
+      throw new Error(AdBlockI18n.t('errUpdateMeta', [String(metaResponse.status)]));
     }
 
     const meta = await metaResponse.json();
@@ -88,7 +86,7 @@ const AdBlockListUpdate = (() => {
     if (baselineMatches) {
       const extraResponse = await fetchJson('dnr-extra.json', { bust: true });
       if (!extraResponse?.ok) {
-        throw new Error(`拉取 dnr-extra.json 失败（${extraResponse?.status || '网络错误'}）`);
+        throw new Error(AdBlockI18n.t('errUpdateExtra', [String(extraResponse?.status || AdBlockI18n.t('errNetwork'))]));
       }
       const extra = await extraResponse.json();
       const applied = await AdBlockDnr.applyListExtra(Array.isArray(extra) ? extra : []);

@@ -1,4 +1,4 @@
-importScripts('../lib/storage.js', '../lib/classifier.js', '../lib/dnr.js', '../lib/cosmetics.js', '../lib/list-update.js');
+importScripts('../lib/i18n.js', '../lib/storage.js', '../lib/classifier.js', '../lib/dnr.js', '../lib/cosmetics.js', '../lib/list-update.js');
 
 const BLOCKED_BY_CLIENT = 'net::ERR_BLOCKED_BY_CLIENT';
 
@@ -292,5 +292,5 @@ async function handleMessage(message, sender) {
     return { ok: true };
   }
 
-  return { ok: false, error: `未知消息类型: ${type}` };
+  return { ok: false, error: AdBlockI18n.t('errUnknownMessage', [String(type)]) };
 }

@@ -1,0 +1,113 @@
+{
+  "extName": { "message": "Backrt 広告ブロック" },
+  "extDescription": { "message": "Manifest V3 の広告ブロッカー。EasyList の静的ルールで遮断し、ページ上の広告を動的ルールに追加できます。" },
+  "popupTitle": { "message": "Backrt 広告ブロック" },
+  "readingPage": { "message": "現在のページを読み込んでいます…" },
+  "settings": { "message": "設定" },
+  "blockedOnPage": { "message": "このページでブロック済み" },
+  "suspectOnPage": { "message": "このページの疑わしい広告" },
+  "addSelected": { "message": "選択項目を動的ルールに追加" },
+  "myDynamicRules": { "message": "自分の動的ルール" },
+  "emptyBlocked": { "message": "このページのブロック記録はまだありません" },
+  "blocked": { "message": "ブロック済み" },
+  "emptyCandidates": { "message": "追加できる広告候補は見つかりませんでした" },
+  "sourceDom": { "message": "ページ検出" },
+  "sourceNetwork": { "message": "リクエスト検出" },
+  "emptyRulesPopup": { "message": "カスタム動的ルールはまだありません" },
+  "blockByAdDomain": { "message": "広告ドメインでサブリソースをブロック" },
+  "statusEnabled": { "message": "有効" },
+  "statusDisabled": { "message": "無効" },
+  "actionEnable": { "message": "有効にする" },
+  "actionDisable": { "message": "無効にする" },
+  "actionDelete": { "message": "削除" },
+  "cannotReadTab": { "message": "現在のタブを読み取れません" },
+  "loadPageFailed": { "message": "ページデータの読み込みに失敗しました" },
+  "addedRules": {
+    "message": "動的ルールを $COUNT$ 件追加しました。ページを再読み込みすると有効になります。",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "alreadyInRules": { "message": "選択したドメインは既に動的ルールにあります。" },
+  "addRulesFailed": { "message": "動的ルールの追加に失敗しました" },
+  "toggleFailed": { "message": "切り替えに失敗しました" },
+  "removeFailed": { "message": "削除に失敗しました" },
+  "optionsTitle": { "message": "Backrt 広告ブロックの設定" },
+  "optionsLead": { "message": "静的ルールで広告リクエストを遮断し、要素非表示で残り枠を消し、動的ルールはポップアップの選択とリスト更新から追加されます。" },
+  "staticRulesets": { "message": "静的ルールセット" },
+  "staticRulesHint": { "message": "オフにした後は、開いているページを再読み込みすると完全に反映されます。" },
+  "easylistDesc": { "message": "一般的な広告ネットワークと広告リクエスト" },
+  "easylistChinaDesc": { "message": "中国語サイト向けの追加ルール" },
+  "cosmeticSection": { "message": "要素の非表示" },
+  "cosmeticHint": { "message": "CSS で広告コンテナを非表示にします。オフにした後はページを再読み込みしてください。" },
+  "hideAdElements": { "message": "広告要素を非表示" },
+  "hideAdElementsDesc": { "message": "EasyList の化粧ルールで display:none を注入" },
+  "filterListUpdates": { "message": "フィルターリストの更新" },
+  "refreshNow": { "message": "今すぐ更新" },
+  "filterListHint": { "message": "公開リストの増分ネットワークルールを毎日取得し、要素非表示表を全件更新します。" },
+  "notUpdatedYet": { "message": "未更新" },
+  "dynamicRules": { "message": "動的ルール" },
+  "emptyRulesOptions": { "message": "カスタム動的ルールはまだありません。任意のページを開き、拡張機能のポップアップで疑わしい広告にチェックを入れて追加できます。" },
+  "updateLastSuccess": {
+    "message": "前回の成功: $TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateListGenerated": {
+    "message": "リスト生成: $TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateExtraRules": {
+    "message": "増分ネットワークルール: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "updateTruncated": { "message": "増分は上限で切り詰められました" },
+  "updateBaselineCleared": { "message": "拡張機能のバージョンが更新されたため、増分ネットワークルールをクリアしました" },
+  "updateErrorPrefix": {
+    "message": "エラー: $ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+  "loadSettingsFailed": { "message": "設定の読み込みに失敗しました" },
+  "dynamicCountText": {
+    "message": "$USED$ / $MAX$（ユーザー $USERUSED$ / $USERMAX$、増分 $EXTRA$）",
+    "placeholders": {
+      "used": { "content": "$1" },
+      "max": { "content": "$2" },
+      "userused": { "content": "$3" },
+      "usermax": { "content": "$4" },
+      "extra": { "content": "$5" }
+    }
+  },
+  "staticRulesUpdated": { "message": "静的ルールセットを更新しました。開いているページを再読み込みしてください。" },
+  "updateRulesetsFailed": { "message": "ルールセットの更新に失敗しました" },
+  "cosmeticUpdated": { "message": "要素の非表示を更新しました。開いているページを再読み込みしてください。" },
+  "updateCosmeticFailed": { "message": "要素の非表示の更新に失敗しました" },
+  "updatingLists": { "message": "フィルターリストを更新しています…" },
+  "listsUpdated": { "message": "フィルターリストを更新しました。" },
+  "updateFailed": { "message": "更新に失敗しました" },
+  "errUserRuleLimit": {
+    "message": "ユーザー動的ルールが上限に達しました（$MAX$）",
+    "placeholders": { "max": { "content": "$1" } }
+  },
+  "errInvalidCandidate": { "message": "無効な広告候補です" },
+  "errNoMainFrame": { "message": "メインドキュメントのリクエストはブロックできません" },
+  "errPathTooWide": { "message": "パスが広すぎるため、動的ルールに追加できません" },
+  "errAlreadyExists": { "message": "このルールは既に存在します" },
+  "errCannotDeleteList": { "message": "リスト増分ルールは削除できません" },
+  "errRuleNotFound": { "message": "その動的ルールが見つかりません" },
+  "errUnknownMessage": {
+    "message": "不明なメッセージ種類: $TYPE$",
+    "placeholders": { "type": { "content": "$1" } }
+  },
+  "errNetwork": { "message": "ネットワークエラー" },
+  "errUpdateFetch": {
+    "message": "更新ファイルを取得できません（$STATUS$）。GitHub raw がキャッシュまたは遮断されている可能性があります。予備 CDN を試しました。拡張機能を再読み込みしてから「今すぐ更新」を押してください。",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateMeta": {
+    "message": "meta.json の取得に失敗しました（$STATUS$）",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateExtra": {
+    "message": "dnr-extra.json の取得に失敗しました（$STATUS$）",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "techSupport": { "message": "サポート" }
+}

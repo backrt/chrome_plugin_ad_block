@@ -1,4 +1,4 @@
-# 广告拦截（Chrome Manifest V3）
+# Backrt 广告拦截（Chrome Manifest V3）
 
 基于 Declarative Net Request 的 Chrome 广告拦截扩展：
 
@@ -55,3 +55,17 @@ npm run build:icons
 - `feature/firefox`：后续。
 
 仓库默认分支保持 `feature/chrome`，否则定时任务不会跑。扩展从 GitHub raw 拉列表，**仓库需要是 Public**；Private 时 raw 会返回 404，设置页会提示更新失败。
+
+## 发布到 Chrome 网上应用店
+
+```bash
+npm run pack
+```
+
+会生成 `dist/backrt-ad-block.zip`（不含 `node_modules`、`.git`、源图标和 `updates/`）。
+
+商店资料：
+
+- 隐私政策：先用 [docs/privacy.html](docs/privacy.html)；GitHub Pages 启用后为 `https://backrt.github.io/chrome_plugin_ad_block/privacy.html`。在 Pages 可用前可用：`https://cdn.jsdelivr.net/gh/backrt/chrome_plugin_ad_block@feature/chrome/docs/privacy.html`
+- 截图：在 `chrome://extensions` 加载本扩展后，自行截取弹窗和设置页（推荐 1280×800 或 640×400）
+- 仓库 Settings → Pages → Source 选 GitHub Actions，以便部署隐私政策页

@@ -1,8 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "广告拦截",
-  "description": "基于 Manifest V3 的广告拦截器：EasyList 静态拦截，并支持识别本页广告后由用户加入动态规则。",
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
   "version": "1.0.0",
+  "default_locale": "zh_CN",
+  "homepage_url": "https://github.com/backrt/chrome_plugin_ad_block",
   "minimum_chrome_version": "121",
   "icons": {
     "16": "icons/icon16.png",
@@ -12,7 +14,7 @@
   },
   "action": {
     "default_popup": "src/popup/popup.html",
-    "default_title": "广告拦截",
+    "default_title": "__MSG_extName__",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png",
@@ -31,7 +33,6 @@
     "storage",
     "activeTab",
     "webRequest",
-    "scripting",
     "alarms",
     "unlimitedStorage"
   ],

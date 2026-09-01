@@ -1,0 +1,113 @@
+{
+  "extName": { "message": "Backrt 广告拦截" },
+  "extDescription": { "message": "基于 Manifest V3 的广告拦截器：EasyList 静态拦截，并支持识别本页广告后由用户加入动态规则。" },
+  "popupTitle": { "message": "Backrt 广告拦截" },
+  "readingPage": { "message": "正在读取当前页面…" },
+  "settings": { "message": "设置" },
+  "blockedOnPage": { "message": "本页已拦截" },
+  "suspectOnPage": { "message": "本页疑似广告" },
+  "addSelected": { "message": "将勾选项加入动态规则" },
+  "myDynamicRules": { "message": "我的动态规则" },
+  "emptyBlocked": { "message": "当前页面暂无拦截记录" },
+  "blocked": { "message": "已拦截" },
+  "emptyCandidates": { "message": "未识别到可添加的广告候选项" },
+  "sourceDom": { "message": "页面识别" },
+  "sourceNetwork": { "message": "请求识别" },
+  "emptyRulesPopup": { "message": "还没有自定义动态规则" },
+  "blockByAdDomain": { "message": "按广告域名拦截子资源" },
+  "statusEnabled": { "message": "已启用" },
+  "statusDisabled": { "message": "已停用" },
+  "actionEnable": { "message": "启用" },
+  "actionDisable": { "message": "停用" },
+  "actionDelete": { "message": "删除" },
+  "cannotReadTab": { "message": "无法读取当前标签页" },
+  "loadPageFailed": { "message": "读取页面数据失败" },
+  "addedRules": {
+    "message": "已添加 $COUNT$ 条动态规则，刷新页面后生效。",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "alreadyInRules": { "message": "所选域名已在动态规则中。" },
+  "addRulesFailed": { "message": "添加动态规则失败" },
+  "toggleFailed": { "message": "切换失败" },
+  "removeFailed": { "message": "删除失败" },
+  "optionsTitle": { "message": "Backrt 广告拦截设置" },
+  "optionsLead": { "message": "静态规则拦截广告请求；元素隐藏去掉残留广告位；动态规则来自弹窗勾选与列表增量更新。" },
+  "staticRulesets": { "message": "静态规则集" },
+  "staticRulesHint": { "message": "关闭后需刷新已打开的页面才会完全生效。" },
+  "easylistDesc": { "message": "通用广告网络与常见广告请求" },
+  "easylistChinaDesc": { "message": "针对中文站点的补充规则" },
+  "cosmeticSection": { "message": "元素隐藏" },
+  "cosmeticHint": { "message": "用 CSS 隐藏页面上的广告容器。关闭后刷新页面生效。" },
+  "hideAdElements": { "message": "隐藏广告元素" },
+  "hideAdElementsDesc": { "message": "按 EasyList 化妆规则注入 display:none" },
+  "filterListUpdates": { "message": "过滤列表更新" },
+  "refreshNow": { "message": "立即更新" },
+  "filterListHint": { "message": "每日拉取公开列表的增量网络规则，并全量刷新元素隐藏表。" },
+  "notUpdatedYet": { "message": "尚未更新" },
+  "dynamicRules": { "message": "动态规则" },
+  "emptyRulesOptions": { "message": "还没有自定义动态规则。打开任意网页，在扩展弹窗中勾选疑似广告即可添加。" },
+  "updateLastSuccess": {
+    "message": "上次成功：$TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateListGenerated": {
+    "message": "列表生成：$TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "updateExtraRules": {
+    "message": "增量网络规则：$COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "updateTruncated": { "message": "增量已截断至额度上限" },
+  "updateBaselineCleared": { "message": "扩展版本已更新，增量网络规则已清空" },
+  "updateErrorPrefix": {
+    "message": "错误：$ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+  "loadSettingsFailed": { "message": "读取设置失败" },
+  "dynamicCountText": {
+    "message": "$USED$ / $MAX$（用户 $USERUSED$ / $USERMAX$，增量 $EXTRA$）",
+    "placeholders": {
+      "used": { "content": "$1" },
+      "max": { "content": "$2" },
+      "userused": { "content": "$3" },
+      "usermax": { "content": "$4" },
+      "extra": { "content": "$5" }
+    }
+  },
+  "staticRulesUpdated": { "message": "静态规则集已更新，请刷新已打开的网页。" },
+  "updateRulesetsFailed": { "message": "更新规则集失败" },
+  "cosmeticUpdated": { "message": "元素隐藏已更新，请刷新已打开的网页。" },
+  "updateCosmeticFailed": { "message": "更新元素隐藏失败" },
+  "updatingLists": { "message": "正在更新过滤列表…" },
+  "listsUpdated": { "message": "过滤列表已更新。" },
+  "updateFailed": { "message": "更新失败" },
+  "errUserRuleLimit": {
+    "message": "用户动态规则已达上限（$MAX$）",
+    "placeholders": { "max": { "content": "$1" } }
+  },
+  "errInvalidCandidate": { "message": "无效的广告候选项" },
+  "errNoMainFrame": { "message": "不能拦截主文档请求" },
+  "errPathTooWide": { "message": "路径过宽，无法添加为动态规则" },
+  "errAlreadyExists": { "message": "该规则已存在" },
+  "errCannotDeleteList": { "message": "不能删除列表增量规则" },
+  "errRuleNotFound": { "message": "未找到该动态规则" },
+  "errUnknownMessage": {
+    "message": "未知消息类型: $TYPE$",
+    "placeholders": { "type": { "content": "$1" } }
+  },
+  "errNetwork": { "message": "网络错误" },
+  "errUpdateFetch": {
+    "message": "拉不到更新文件（$STATUS$）。GitHub raw 可能被缓存或拦截，已尝试备用 CDN。请在扩展管理页刷新扩展后再点立即更新。",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateMeta": {
+    "message": "拉取 meta.json 失败（$STATUS$）",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "errUpdateExtra": {
+    "message": "拉取 dnr-extra.json 失败（$STATUS$）",
+    "placeholders": { "status": { "content": "$1" } }
+  },
+  "techSupport": { "message": "技术支持" }
+}
