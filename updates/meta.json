@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-09-05T07:25:44.203Z",
+  "generatedAt": "2026-09-07T07:57:10.724Z",
   "baselineVersion": "1.0.0",
-  "extraRuleCount": 1250,
-  "extraRuleTotal": 1250,
+  "extraRuleCount": 1924,
+  "extraRuleTotal": 1924,
   "truncated": false,
   "sources": [
     {
       "group": "easylist",
-      "fingerprint": "1a5dbfeba58fdf71",
-      "networkRules": 53115
+      "fingerprint": "159aa00966548f1e",
+      "networkRules": 49571
     },
     {
       "group": "easylist_china",
-      "fingerprint": "ecc36a4af97a04a4",
-      "networkRules": 12100
+      "fingerprint": "51e2a1c7543038cc",
+      "networkRules": 12117
     }
   ],
   "cosmetics": {
     "generic": 14659,
     "specificDomains": 10113,
-    "specificSelectors": 24061,
+    "specificSelectors": 24065,
     "exceptionGeneric": 1,
     "exceptionDomains": 752
   }
